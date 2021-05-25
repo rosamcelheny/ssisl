@@ -1,5 +1,27 @@
+@font-face {
+  font-family: Century_IDK;
+  src: url(assets/190509_CENTURY_EXTRAEXTRA.otf);
+}
+@font-face {
+  font-family: OCR_IDK;
+  src:url(assets/190828.otf);
+}
+
+* {
+  font-family: Century_IDK;
+}
+
 select {
   position:fixed;
-  bottom:1em;
-  left:1em;
+  bottom:.25em;
+  left:.25em;
+  width: calc(100% - 0.5em);
+  font-size: 24px;
+  padding: .25em;
+}
+
+h1 {
+  font-size: 12rem;
+  letter-spacing: 4px;
+  text-align:center;
 }
