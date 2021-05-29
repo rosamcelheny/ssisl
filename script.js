@@ -42,6 +42,17 @@ function makePlayer() {
   });
 }
 
+$( "h2" ).click(function() {
+  console.log("Click");
+  $("iframe").remove();
+  $("h1").show();
+});
+$( ".info" ).click(function() {
+  console.log("Click");
+  $("iframe").remove();
+  $(".caption").toggle();
+});
+
 // function onYouTubeIframeAPIReady() {
 //   makePlayer();
 // }

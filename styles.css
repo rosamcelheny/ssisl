@@ -1,37 +1,92 @@
 @font-face {
-  font-family: Century_IDK;
-  src: url(assets/190509_CENTURY_EXTRAEXTRA.otf);
+    font-family: Century_IDK;
+    src: url(assets/190509_CENTURY_EXTRAEXTRA.otf);
 }
+
 @font-face {
-  font-family: OCR_IDK;
-  src:url(assets/190828.otf);
+    font-family: OCR_IDK;
+    src: url(assets/190828.otf);
 }
 
 * {
-  font-family: Century_IDK;
+    font-family: Century_IDK;
 }
 
 body {
-  margin: 0;
+    margin: 0;
+    overflow: hidden;
+        font-size: 24px;
 }
 
 select {
-  position:fixed;
-  bottom:.25em;
-  left:.25em;
-  width: calc(100% - 0.5em);
-  font-size: 24px;
-  padding: .25em;
+    position: fixed;
+    bottom: .25em;
+    left: .25em;
+    width: calc(100% - 0.5em);
+    padding: .25em;
+    font-size: 1em;
 }
 
 h1 {
-  font-size: 12rem;
-  letter-spacing: 4px;
-  text-align:center;
+    font-size: 12rem;
+    letter-spacing: 4px;
+    text-align: center;
 }
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 1.5em;
+        font-size: 1em;
+}
+
 h2 {
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: .25em .25em;
+    cursor: pointer;
+    user-select: none;
+        font-size: 1em;
+
+}
+.info {
+    position: absolute;
+    top: .25em;
+    right: .25em;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    font-size: 1em;
+}
+.caption {
+  display: none;
+  height:  100%;
+  width:  100%;
   position: fixed;
-  top: .25em;
-  left: .25em;
-  margin: 0;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  color: white;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+.caption div {
+  padding: 0 0 1em 0;
+}
+.column {
+  width: 50%;
+}
+.column:first-of-type {
+  margin-right: 1em;
 }
