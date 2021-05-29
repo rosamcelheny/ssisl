@@ -11,6 +11,10 @@
   font-family: Century_IDK;
 }
 
+body {
+  margin: 0;
+}
+
 select {
   position:fixed;
   bottom:.25em;
@@ -24,4 +28,10 @@ h1 {
   font-size: 12rem;
   letter-spacing: 4px;
   text-align:center;
+}
+h2 {
+  position: fixed;
+  top: .25em;
+  left: .25em;
+  margin: 0;
 }

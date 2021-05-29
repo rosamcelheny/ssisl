@@ -12,11 +12,12 @@ var player;
 var id = $("#videos").val();
 
 var width = $(window).width();
-var height = $(window).height() * 0.609375;
+var height = $(window).height();
 
 console.log(id);
 
 $("#videos").change(function() {
+  $("h1").hide();
   id = $(this).val();
   console.log(id);
   $("iframe").remove();
