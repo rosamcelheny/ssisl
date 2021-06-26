@@ -158,8 +158,8 @@ h2 {
     position: relative;
     position: absolute;
     left: 0px;
-    /*bottom: 0px;*/
-    top: calc(100% - 2em);
+    bottom: 0px;
+    /*top: calc(100% - 2em);*/
     width: 100%;
 }
 
@@ -213,6 +213,9 @@ h2 {
     left: 0;
     right: 0;
     z-index: 99;
+
+    /*height: 400px;*/
+    overflow: scroll;
 }
 
 /* Hide the items when the select box is closed: */

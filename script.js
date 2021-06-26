@@ -1,34 +1,19 @@
-// 2. This code loads the IFrame Player API code asynchronously.
+// This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
-
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
+// This function creates an <iframe> (and YouTube player) after the API code downloads.
 var player;
 
+// some variables for finding the video and size of window
 var id = $("#videos").val();
-
 var width = $(window).width();
 var height = $(window).height();
-
 console.log(id);
 
-// $("#videos").change(function() {
-//   $("h1").hide();
-//   $("header").show(); 
-//   $("g").css({"fill": "none", "stroke": "white", "stroke-width": "2px"});    
-//   id = $(this).val();
-//   console.log(id);
-//   $("iframe").remove();
-//   var player_el = document.createElement("div");
-//   $(player_el).attr("id", "player");
-//   $("body").append(player_el);
-//   makePlayer();
-// })
-
+// create the YT iframe player
 function makePlayer() {
   player = new YT.Player('player', {
     height: `${height}`,
@@ -44,7 +29,8 @@ function makePlayer() {
   });
 }
 
-// TO DO: when you click play, the shapes disappears; when video pauses, they reappear.
+// TO DO: when you click play, the shapes disappears; 
+// when video pauses, they reappear.
 
 // clicking the "i" shows/hides the colophon info
 $(".info").click(function() {
@@ -71,6 +57,7 @@ $("h2").click(function() {
   $("g").css({"fill": "white", "stroke-width": "0px"});
 })
 
+// CUSTOM SELECT DROPDOWN>>>>>>>
 // for custom select
 var x, i, j, l, ll, selElmnt, a, b, c;
 
@@ -78,22 +65,39 @@ var x, i, j, l, ll, selElmnt, a, b, c;
 x = document.getElementsByClassName("custom-select");
 l = x.length;
 
+// get height of window minus the header
+var window_height = $(window).height();
+console.log(window_height);
+var height = $(window).height() - 47;
+var height_px = height + "px";
+$('.select-items').height(height);
+// var height = $(window).height();
+console.log("height = " + height);
+
+// on resize, recalculate the height
+$( window ).resize(function() {
+  height = $(window).height() - 36 + "px";
+  console.log("height = " + height);
+});
+
 // for each custom-select element, do the following:
 for (i = 0; i < l; i++) {
 
   // find the first select element
   selElmnt = x[i].getElementsByTagName("select")[0];
-
   ll = selElmnt.length;
+
   /* For each element, create a new DIV that will act as the selected item: */
   a = document.createElement("DIV");
   a.setAttribute("class", "select-selected");
   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
   x[i].appendChild(a);
+
   /* For each element, create a new DIV that will contain the option list: */
   b = document.createElement("DIV");
   b.setAttribute("class", "select-items select-hide");
   for (j = 1; j < ll; j++) {
+
     /* For each option in the original select element,
     create a new DIV that will act as an option item: */
     c = document.createElement("DIV");
@@ -139,18 +143,16 @@ for (i = 0; i < l; i++) {
   }
   x[i].appendChild(b);
   a.addEventListener("click", function(e) {
+
     /* When the select box is clicked, close any other select boxes,
     and open/close the current select box: */
-
     e.stopPropagation();
     closeAllSelect(this);
     this.nextSibling.classList.toggle("select-hide");
     this.classList.toggle("select-arrow-active");
     if ($(".custom-select").css("bottom") == "0px") {
-      height = $(".custom-select").height() * (ll - 1) + "px";
-      console.log(height);
-      // $(".custom-select").animate({bottom: `${height}`});
-      $(".custom-select").animate({bottom: "500px"});
+      $(".custom-select").animate({bottom: `${height_px}`});
+      $('.select-items').height(height);
     } else {
       $(".custom-select").animate({bottom: "0px"});
     }
@@ -186,3 +188,16 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+// $("#videos").change(function() {
+//   $("h1").hide();
+//   $("header").show(); 
+//   $("g").css({"fill": "none", "stroke": "white", "stroke-width": "2px"});    
+//   id = $(this).val();
+//   console.log(id);
+//   $("iframe").remove();
+//   var player_el = document.createElement("div");
+//   $(player_el).attr("id", "player");
+//   $("body").append(player_el);
+//   makePlayer();
+// })
