@@ -207,6 +207,10 @@ h2 {
     color: white;
 }
 
+.select-items div:last-of-type {
+        margin-bottom: 2em;
+}
+
 /* Style items (options): */
 .select-items {
     position: absolute;
