@@ -14,6 +14,7 @@ var height = $(window).height();
     $("#videos").change(function() {
         // hide title
         $("h1").hide();
+        $(".sticker").hide();
         $("header").show(); 
         $("g").css({"fill": "none", "stroke": "white", "stroke-width": "2px"}); 
         $(".container").css("background-color", "initial");
@@ -68,6 +69,7 @@ $("h2").click(function() {
   $("iframe").remove();
   $(".caption").hide();
   $("h1").show();
+  $(".sticker").show();
   $("header").hide();
   $("g").css({"fill": "white", "stroke-width": "0px"});
   $(".container").css("background-color", "white");
