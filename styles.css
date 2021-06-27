@@ -26,6 +26,7 @@ body {
     position: absolute;
     display: flex;
     align-items: center;
+    pointer-events: none;
 }
 
 select {
@@ -166,6 +167,7 @@ h2 {
 .custom-select select {
     display: none;
     /*hide original SELECT element: */
+    /*display: block;*/
 }
 
 .select-selected {

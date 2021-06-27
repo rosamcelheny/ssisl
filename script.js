@@ -8,31 +8,46 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 
 // some variables for finding the video and size of window
-var id = $("#videos").val();
 var width = $(window).width();
 var height = $(window).height();
-console.log(id);
 
-// create the YT iframe player
-function makePlayer() {
-  player = new YT.Player('player', {
-    height: `${height}`,
-    width: `${width}`,
-    videoId: `${id}`,
-    playerVars: {
-      'playsinline': 1
-    },
-    events: {
-      // 'onReady': onPlayerReady,
-      // 'onStateChange': onPlayerStateChange
-    }
-  });
-}
+    $("#videos").change(function() {
+        // hide title
+        $("h1").hide();
+        $("header").show(); 
+        $("g").css({"fill": "none", "stroke": "white", "stroke-width": "2px"}); 
+        $(".container").css("background-color", "initial");
+        // get ride of old vid
+        $("iframe").remove();
+        
+        // make new player div
+        var player_el = document.createElement("div");
+        $(player_el).attr("id", "player");
+        $("body").append(player_el);
+
+        // get the current video
+        var id = $(this).val();
+        
+        // make the player
+        player = new YT.Player('player', {
+            height: `${height}`,
+            width: `${width}`,
+            videoId: `${id}`,
+            playerVars: {
+                'playsinline': 1
+            },
+            events: {
+                // 'onReady': onPlayerReady,
+                // 'onStateChange': onPlayerStateChange
+            }
+        });
+    })
 
 // TO DO: when you click play, the shapes disappears; 
 // when video pauses, they reappear.
 
-// clicking the "i" shows/hides the colophon info
+
+// // clicking the "i" shows/hides the colophon info
 $(".info").click(function() {
   $(".caption").toggle(0, function(){
       // check paragraph once toggle effect is completed
@@ -55,10 +70,20 @@ $("h2").click(function() {
   $("h1").show();
   $("header").hide();
   $("g").css({"fill": "white", "stroke-width": "0px"});
+  $(".container").css("background-color", "white");
 })
 
-// CUSTOM SELECT DROPDOWN>>>>>>>
-// for custom select
+// on resize, recalculate the height
+$( window ).resize(function() {
+   height_adj = $(window).height() - 47;
+   height_px = height_adj + "px";
+   width = $(window).width();
+   height = $(window).height();
+});
+
+
+// // CUSTOM SELECT DROPDOWN>>>>>>>
+// // for custom select
 var x, i, j, l, ll, selElmnt, a, b, c;
 
 /* Look for any elements with the class "custom-select": */
@@ -66,19 +91,9 @@ x = document.getElementsByClassName("custom-select");
 l = x.length;
 
 // get height of window minus the header
-var window_height = $(window).height();
-console.log(window_height);
-var height = $(window).height() - 47;
-var height_px = height + "px";
-$('.select-items').height(height);
-// var height = $(window).height();
-console.log("height = " + height);
-
-// on resize, recalculate the height
-$( window ).resize(function() {
-  height = $(window).height() - 36 + "px";
-  console.log("height = " + height);
-});
+var height_adj = height - 47;
+var height_px = height_adj + "px";
+$('.select-items').height(height_adj);
 
 // for each custom-select element, do the following:
 for (i = 0; i < l; i++) {
@@ -124,11 +139,9 @@ for (i = 0; i < l; i++) {
             $("g").css({"fill": "none", "stroke": "white", "stroke-width": "2px"});
             var selected_video = $("#videos").val();
             console.log(selected_video);
-            $("iframe").remove();
-            var player_el = document.createElement("div");
-            $(player_el).attr("id", "player");
-            $("body").append(player_el);
-            // makePlayer();
+
+            // make video select change
+            $('#videos').trigger('change');
             
             for (k = 0; k < yl; k++) {
               y[k].removeAttribute("class");
@@ -189,15 +202,4 @@ function closeAllSelect(elmnt) {
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
 
-// $("#videos").change(function() {
-//   $("h1").hide();
-//   $("header").show(); 
-//   $("g").css({"fill": "none", "stroke": "white", "stroke-width": "2px"});    
-//   id = $(this).val();
-//   console.log(id);
-//   $("iframe").remove();
-//   var player_el = document.createElement("div");
-//   $(player_el).attr("id", "player");
-//   $("body").append(player_el);
-//   makePlayer();
-// })
+
