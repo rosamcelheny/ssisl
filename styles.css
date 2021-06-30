@@ -82,19 +82,19 @@ h1 {
 .sticker {
     background-color: lime;
     position: fixed;
-    /*width: 300px;*/
+    width: 17em;
+    height: 6em;
+    /* margin: auto; */
     font-size: 10px;
-    /* height: 100px; */
-    /* border-radius: 86%; */
     padding: 12px;
-    left: 1em;
-    top: .5em;
-    /*transform: rotate(7deg);*/
+    left: calc((100% - 17em) / 2);
+    top: calc((100% - 6em) / 2);
     box-shadow: 0px 0px 27px rgb(0 0 0 / 25%);
     font-family: OCR-IDK;
     text-transform: uppercase;
-    /*text-align: center;*/
+    text-align: center;
     font-size: 14px;
+    z-index: 1000;
 }
 
 .sticker span {
@@ -182,15 +182,23 @@ h2 {
     margin-right: 1em;
 }
 
-.column span, .column a {
+.column span,
+.column a {
     font-family: OCR-IDK;
+
 }
 
-.column a  {
+.column .long {
+    word-break: break-all;
+    font-family: inherit;
+}
+
+.column a {
     color: blue;
 }
 
-.column a:hover, .column a:visited {
+.column a:hover,
+.column a:visited {
     color: lime;
 }
 
@@ -295,7 +303,8 @@ h2 {
     color: black;
 }
 
-.select-items div:hover, .select-items div:active,
+.select-items div:hover,
+.select-items div:active,
 .same-as-selected {
     background-color: rgba(255, 255, 255, 1);
     color: black;
@@ -317,12 +326,6 @@ h2 {
 
     .column-wrapper {
         flex-wrap: wrap;
-    }
-
-    .sticker {
-        top: 1em;
-        left: 1em;
-        right: 1em;
     }
 
     .select-items div,
