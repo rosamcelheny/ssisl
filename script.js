@@ -4,12 +4,18 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+const onApiChange = _ => {   
+  if (typeof player.setOption === 'function') {
+    player.setOption('captions', 'track', {languageCode: 'en'}) // undocumented call
+  }  
+}
+
 // This function creates an <iframe> (and YouTube player) after the API code downloads.
 var player;
 
 // some variables for finding the video and size of window
 var width = $(window).width();
-var height = $(window).height();
+var height = $(window).height() - 48;
 
     $("#videos").change(function() {
         // hide title
@@ -35,11 +41,17 @@ var height = $(window).height();
             width: `${width}`,
             videoId: `${id}`,
             playerVars: {
-                'playsinline': 1
+              // 'autoplay': 1,
+              // 'mute': 1,
+                'playsinline': 1,
+                'cc_load_policy': 1,
+                'cc_lang_pref': 'en',
+                'modestbranding': 1
             },
             events: {
                 // 'onReady': onPlayerReady,
                 // 'onStateChange': onPlayerStateChange
+                onApiChange
             }
         });
     })

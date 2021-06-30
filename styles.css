@@ -82,17 +82,19 @@ h1 {
 .sticker {
     background-color: lime;
     position: fixed;
-    width: 300px;
+    /*width: 300px;*/
+    font-size: 10px;
     /* height: 100px; */
     /* border-radius: 86%; */
     padding: 12px;
-    right: 2em;
-    top: 2em;
-    transform: rotate(7deg);
+    left: 1em;
+    top: .5em;
+    /*transform: rotate(7deg);*/
     box-shadow: 0px 0px 27px rgb(0 0 0 / 25%);
     font-family: OCR-IDK;
     text-transform: uppercase;
-    text-align: center;
+    /*text-align: center;*/
+    font-size: 14px;
 }
 
 .sticker span {
@@ -180,25 +182,36 @@ h2 {
     margin-right: 1em;
 }
 
+.column span, .column a {
+    font-family: OCR-IDK;
+}
+
+.column a  {
+    color: blue;
+}
+
+.column a:hover, .column a:visited {
+    color: lime;
+}
+
 .shapes {
-    height: 74%;
+    height: 74vh;
     /*background-color: gray;*/
     width: 150vw;
     position: fixed;
-    top: 13%;
+    /* top: 13%; */
     left: -25vw;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: space-between;
-
-
     mix-blend-mode: difference;
 }
 
 .shapes svg {
     width: 50vw;
     margin: 0px 7px;
+    height: 100%;
 }
 
 
@@ -307,8 +320,9 @@ h2 {
     }
 
     .sticker {
-        right: 0em;
-    top: 1em;
+        top: 1em;
+        left: 1em;
+        right: 1em;
     }
 
     .select-items div,
