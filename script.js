@@ -120,7 +120,11 @@ for (i = 0; i < l; i++) {
   /* For each element, create a new DIV that will act as the selected item: */
   a = document.createElement("DIV");
   a.setAttribute("class", "select-selected");
+  // var span_sel = document.createElement("span");
+  // span_sel.innerHTML = selElmnt.options[selElmnt.selectedIndex].getAttribute("data-year");
+  // a.appendChild(span_sel);
   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+
   x[i].appendChild(a);
 
   /* For each element, create a new DIV that will contain the option list: */
@@ -131,7 +135,12 @@ for (i = 0; i < l; i++) {
     /* For each option in the original select element,
     create a new DIV that will act as an option item: */
     c = document.createElement("DIV");
+    // var span = document.createElement("span");
+    // span.innerHTML = selElmnt.options[j].getAttribute("data-year");
+
     c.innerHTML = selElmnt.options[j].innerHTML;
+   
+    // c.appendChild(span);
 
     // this happens when u click any except for the top
     c.addEventListener("click", function(e) {
@@ -142,6 +151,8 @@ for (i = 0; i < l; i++) {
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         sl = s.length;
         h = this.parentNode.previousSibling;
+
+        console.log(this.innerHTML);
         for (i = 0; i < sl; i++) {
           if (s.options[i].innerHTML == this.innerHTML) {
             s.selectedIndex = i;
