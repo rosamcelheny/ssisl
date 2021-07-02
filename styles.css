@@ -318,12 +318,12 @@ h2 {
 
 @media (max-width: 600px) {
     h1 {
-
-        font-size: 26vw;
+    font-size: 100px;
     line-height: 0.90em;
     letter-spacing: 0px;
     margin: 19px;
     text-align: initial;
+    word-spacing: 2em;
     }
 
     .sticker {
