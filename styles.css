@@ -82,13 +82,13 @@ h1 {
 .sticker {
     background-color: lime;
     position: fixed;
-    width: 17em;
-    height: 6em;
+    /*width: 17em;*/
+    /*height: 6em;*/
     /* margin: auto; */
     font-size: 10px;
     padding: 12px;
-    left: calc((100% - 17em) / 2);
-    top: calc((100% - 6em) / 2);
+    bottom: 5em;
+    right: 2em;
     /*box-shadow: 0px 0px 20px rgb(0 0 0 / 93%);*/
     box-shadow: 0px 0px 20px rgb(0 0 255 / 93%);
     font-family: OCR-IDK;
@@ -99,10 +99,10 @@ h1 {
     border-radius: 1em;
 }
 
-.sticker span {
+.sticker a {
     font-family: OCR-IDK;
     text-transform: uppercase;
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
 }
 
 header {
@@ -317,8 +317,27 @@ h2 {
 }
 
 @media (max-width: 600px) {
+    h1 {
+
+        font-size: 26vw;
+    line-height: 0.90em;
+    letter-spacing: 0px;
+    margin: 19px;
+    text-align: initial;
+    }
+
+    .sticker {
+        width: initial;
+        left: 2em;
+    }
+
+.container {
+    align-items: flex-start;
+}
     .caption {
         flex-wrap: wrap;
+            width: 97%;
+    top: initial;
     }
 
     .column {
